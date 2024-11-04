@@ -2,3 +2,5 @@ transformers
 torch
 torchvision
 sentencepiece
+openai
+load_dotenv
