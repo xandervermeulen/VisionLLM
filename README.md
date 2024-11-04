@@ -6,21 +6,18 @@ The purpose of this project is to develop a custom VisionLLM, a large language m
 
 ## Key Components
 
-The VisionLLM model is structured around five essential components:
+The VisionLLM model is structured around four essential components:
 
 1. **Base Input (Image and Unified Language Instruction)**  
    This component combines an image with a unified language instruction that guides the model’s interpretation of the visual input. The instruction typically describes a vision-centric task, such as "Describe the image" or "Identify the landmark."
 
-2. **Language Decoder**  
-   The language decoder, powered by Hugging Face Transformers, processes the textual elements of the input and generates the textual features, \( F_l \). This component is crucial for understanding context and generating relevant descriptions.
-
-3. **Image Processor (Image Backbone)**  
+2. **Image Processor (Image Backbone)**  
    The image processor interprets the visual elements of the input and identifies all visual features, \( F_v \), of the image. For this project, we will use ResNet-50 or EfficientNet from the PyTorch library as the backbone architecture.
 
-4. **Language-Guided Tokenizer**  
+3. **Language-Guided Tokenizer**  
    A custom tokenizer receives both the textual features \( F_l \) and visual features \( F_v \), and combines the two to search for specific patterns, parts, and features in the image based on the textual features. This process creates multidimensional language-aware features or tokens, \( T \). Each token contains information about a part of the image enriched with contextual cues from the textual information.
 
-5. **LLM Task Decoder**  
+4. **LLM Task Decoder**  
    The task decoder tailors the VisionLLM’s output for image-based tasks, such as generating detailed, relevant descriptions based on the tokens and the initial instruction.
 
 By integrating these components, VisionLLM can generate detailed descriptions based on the content of an image. The model will be trained on a curated dataset (TBD) to ensure high-quality outputs specifically related to travel destinations and landmarks.
